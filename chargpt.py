@@ -88,6 +88,7 @@ class Trainer:
         pass
 
 '''
+make it sequence-length,batch-wise
 train the model using Trainer class 
 and run predictions on it
 '''
@@ -96,4 +97,6 @@ and run predictions on it
 if __name__== '__main__':
     print("is encode/decode working ? "+str("hello world"==decode(encode("hello world"))))
     model = Model(12)
-    print(decode(model(torch.Tensor(encode("testing"))).detach().numpy()))
+    x = torch.randn(2,100,n_vocab) #Batch-size,sequence-length,embedding-dimension
+    print(model(x))
+    #print(decode(model(torch.Tensor(encode("testing"))).detach().numpy()))
